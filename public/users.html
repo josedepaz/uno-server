@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellico</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Dirección</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in $ctrl.users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.tel}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address}}</td>
+        </tr>
+    </tbody>
+</table>
