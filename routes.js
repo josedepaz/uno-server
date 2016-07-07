@@ -1,6 +1,7 @@
 'use strict';
 
 const Users = require('./handlers/users');
+const Cards = require('./handlers/cards');
 
 module.exports = [
     {
@@ -21,5 +22,10 @@ module.exports = [
         method: 'POST',
         path: '/users',
         handler: Users.insert
+    },
+    {
+        method: 'GET',
+        path: '/cards/r',
+        handler: Cards.getCard
     }
 ]
