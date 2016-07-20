@@ -25,7 +25,7 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/cards/r',
+        path: '/cards/up',
         handler: Cards.getCard
     }
 ]
