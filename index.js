@@ -5,8 +5,8 @@ const server = new Hapi.Server();
 server.connection({ port: 4000 });
 const io = require('socket.io')(server.listener);
 const r = require('rethinkdbdash')({
-    //servers: [{ host: '192.168.56.101', port: 32772 }]
-    servers: [{ host: '107.170.97.13', port: 32769 }]
+    servers: [{ host: '192.168.56.101', port: 32772 }]
+    //servers: [{ host: '107.170.97.13', port: 32769 }]
 });
 
 server.register([require('inert'), require('hapi-auth-cookie')], (err) => {
@@ -19,6 +19,7 @@ server.register([require('inert'), require('hapi-auth-cookie')], (err) => {
     const cache = server.cache({ segment: 'sessions', expiresIn: 3 * 24 * 60 * 60 * 1000 });
     server.app.cache = cache;
     server.app.cards = [];
+    server.app.users = [];
 
     server.auth.strategy('session', 'cookie', true, {
         password: 'password-should-be-32-characters',
