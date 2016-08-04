@@ -62,8 +62,8 @@ exports.login = function (request, reply) {
                             reply(err);
                         }
                         request.server.app.users.push(result[0].username);
-                        //request.server.app.cards[result[0].username] = [];
                         request.cookieAuth.set({ sid: sid });
+                        //request.server.app.cards[result[0].username] = [];
                         return reply.redirect('/');
                     });
                 }
