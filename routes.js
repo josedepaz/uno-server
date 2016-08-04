@@ -3,6 +3,7 @@
 const Users = require('./handlers/users');
 const Cards = require('./handlers/cards');
 const Auth = require('./handlers/auth');
+const Game = require('./handlers/game');
 
 module.exports = [
     { method: 'GET', path: '/users', handler: Users.list },
@@ -12,5 +13,6 @@ module.exports = [
     { method: 'GET', path: '/cards/0', handler: Cards.getCards},
     { method: 'GET', path: '/', config: { handler: Auth.home } },
     { method: ['GET', 'POST'], path: '/login', config: { handler: Auth.login, auth: { mode: 'try' }, plugins: { 'hapi-auth-cookie': { redirectTo: false } } } },
-    { method: 'GET', path: '/logout', config: { handler: Auth.logout } }
+    { method: 'GET', path: '/logout', config: { handler: Auth.logout } },
+    { method: 'GET', path: '/game/{path*}', handler: Game.startGame}
 ]
